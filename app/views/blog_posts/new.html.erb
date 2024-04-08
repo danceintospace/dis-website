@@ -1,22 +1,4 @@
-<h1>Create A Blog Post</h1>
-
-<%= form_with model: @blog_post do |form| %>
-  <% if form.object.errors.any? %>
-    <div>
-      <% form.object.errors.full_messages.each do |message| %>
-      <div><%= message %></div>
-      <% end %>
-    </div>
-  <% end %>
-
-      <div>
-        <%= form.label :title %>
-        <%= form.text_field :title%>
-      </div>
-    <div>
-        <%= form.label :body %>
-        <%= form.text_area :body%>
-    </div>
-
-  <%= form.button %>
-<% end %>
+<div class="p-6">
+  <h1 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl" style="color: #6F0114;">Create A Blog Post</h1>
+  <%= render partial: "form", locals: {blog_post: @blog_post} %>
+</div>

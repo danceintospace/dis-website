@@ -1,28 +1,37 @@
 <nav class="navbar bg-white text-black py-2 px-0 lg:px-8 fixed top-0 w-full transition duration-300">
   <div class="container mx-auto flex justify-between items-center">
-<!--    <div class="flex items-center">-->
-<!--      <img src="<%#= image_path('logo.png') %>" class="w-36 h-auto">-->
-<!--    </div>-->
-    <!-- Search Bar -->
-    <div class="hidden lg:flex flex-1 items-center justify-center px-2">
-      <!-- Search Bar Code -->
+    <div class="flex items-center">
+      <%#= link_to image_tag("logo.png", class: "w-36 h-auto"), root_path %>
     </div>
     <!-- Toggle Menu Button -->
     <div id="toggleMenuBtn" class="lg:hidden ml-auto pr-4 focus:outline-none">
-      <!-- Toggle Menu Button Code -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M2 5a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1zm0 5a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1zm0 5a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1z" clip-rule="evenodd" />
+      </svg>
     </div>
     <!-- Menu Items -->
     <div id="menu" class="hidden lg:flex lg:items-center">
       <div class="dropdown inline-block relative ml-6">
-        <!-- Explore Button and Menu Code -->
+        <button id="exploreBtn" class="focus:outline-none">Explore</button>
+        <ul id="exploreMenu" class="dropdown-menu absolute hidden bg-white text-gray-700 p-2 w-200%">
+          <li><%= link_to "About", "#about-section", class: "ml-4", style: "text-decoration: none;" %></li>
+          <li><%= link_to "Team", "#team-section", class: "ml-4", style: "text-decoration: none;" %></li>
+          <li><%= link_to "Programs", "#programs-section", class: "ml-4", style: "text-decoration: none;" %></li>
+          <li><%= link_to "Projects", "#projects-section", class: "ml-4", style: "text-decoration: none;" %></li>
+          <li><%= link_to "Gallery", "#gallery-section", class: "ml-4", style: "text-decoration: none;" %></li>
+        </ul>
       </div>
-      <a href="<%= blog_posts_path %>">Blog</a>
-      <a href="<%= tours_path %>">Tours</a>
-      <a href="#faqs" class="ml-4">FAQs</a>
-      <a href="#contact" class="ml-4">Contact</a>
+      <%= link_to "Blog", blog_posts_path, class: "ml-4", style: "text-decoration: none;" %>
+      <%= link_to "Tours", tours_path, class: "ml-4", style: "text-decoration: none;" %>
+      <%= link_to "FAQs", "#faqs-section", class: "ml-4", style: "text-decoration: none;" %>
+      <%= link_to "Contact", "#contact-section", class: "ml-4", style: "text-decoration: none;" %>
       <a href="#" class="ml-4">
         <button type="button" class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" style="color: #6E1B23">DONATE</button>
       </a>
+      <% if user_signed_in? %>
+        <%= link_to "New blog post", new_blog_post_path, class: "ml-4", style: "text-decoration: none;" %>
+        <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "bg-customGray text-black px-4 py-2 rounded hover:bg-customBlue hover:text-white ml-4" %>
+      <% end %>
     </div>
   </div>
 </nav>
