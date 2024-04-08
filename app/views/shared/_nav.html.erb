@@ -1,0 +1,28 @@
+<nav class="navbar bg-white text-black py-2 px-0 lg:px-8 fixed top-0 w-full transition duration-300">
+  <div class="container mx-auto flex justify-between items-center">
+<!--    <div class="flex items-center">-->
+<!--      <img src="<%#= image_path('logo.png') %>" class="w-36 h-auto">-->
+<!--    </div>-->
+    <!-- Search Bar -->
+    <div class="hidden lg:flex flex-1 items-center justify-center px-2">
+      <!-- Search Bar Code -->
+    </div>
+    <!-- Toggle Menu Button -->
+    <div id="toggleMenuBtn" class="lg:hidden ml-auto pr-4 focus:outline-none">
+      <!-- Toggle Menu Button Code -->
+    </div>
+    <!-- Menu Items -->
+    <div id="menu" class="hidden lg:flex lg:items-center">
+      <div class="dropdown inline-block relative ml-6">
+        <!-- Explore Button and Menu Code -->
+      </div>
+      <a href="<%= blog_posts_path %>">Blog</a>
+      <a href="<%= tours_path %>">Tours</a>
+      <a href="#faqs" class="ml-4">FAQs</a>
+      <a href="#contact" class="ml-4">Contact</a>
+      <a href="#" class="ml-4">
+        <button type="button" class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" style="color: #6E1B23">DONATE</button>
+      </a>
+    </div>
+  </div>
+</nav>
