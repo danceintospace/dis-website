@@ -1,4 +1,4 @@
-<nav class="navbar bg-white text-black py-2 px-0 lg:px-8 fixed top-0 w-full transition duration-300">
+<nav class="navbar bg-gray-100 py-2 px-0 lg:px-8 fixed pt-6 pb-6 top-0 w-full transition duration-300">
   <div class="container mx-auto flex justify-between items-center">
     <div class="flex items-center">
       <%#= link_to image_tag("logo.png", class: "w-36 h-auto"), root_path %>
@@ -14,19 +14,19 @@
       <div class="dropdown inline-block relative ml-6">
         <button id="exploreBtn" class="focus:outline-none">Explore</button>
         <ul id="exploreMenu" class="dropdown-menu absolute hidden bg-white text-gray-700 p-2 w-200%">
-          <li><%= link_to "About", "#about-section", class: "ml-4", style: "text-decoration: none;" %></li>
-          <li><%= link_to "Team", "#team-section", class: "ml-4", style: "text-decoration: none;" %></li>
-          <li><%= link_to "Programs", "#programs-section", class: "ml-4", style: "text-decoration: none;" %></li>
-          <li><%= link_to "Projects", "#projects-section", class: "ml-4", style: "text-decoration: none;" %></li>
-          <li><%= link_to "Gallery", "#gallery-section", class: "ml-4", style: "text-decoration: none;" %></li>
+          <li><%= link_to "About", root_path(anchor:"about-section"), class: "ml-4", style: "text-decoration: none;" %></li>
+          <li><%= link_to "Team", root_path(anchor:"team-section"), class: "ml-4", style: "text-decoration: none;" %></li>
+          <li><%= link_to "Programs", root_path(anchor:"programs-section"), class: "ml-4", style: "text-decoration: none;" %></li>
+          <li><%= link_to "Projects", root_path(anchor:"projects-section"), class: "ml-4", style: "text-decoration: none;" %></li>
+          <li><%= link_to "Gallery", root_path(anchor:"gallery-section"), class: "ml-4", style: "text-decoration: none;" %></li>
         </ul>
       </div>
       <%= link_to "Blog", blog_posts_path, class: "ml-4", style: "text-decoration: none;" %>
       <%= link_to "Tours", tours_path, class: "ml-4", style: "text-decoration: none;" %>
-      <%= link_to "FAQs", "#faqs-section", class: "ml-4", style: "text-decoration: none;" %>
-      <%= link_to "Contact", "#contact-section", class: "ml-4", style: "text-decoration: none;" %>
-      <a href="#" class="ml-4">
-        <button type="button" class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" style="color: #6E1B23">DONATE</button>
+      <%= link_to "FAQs", root_path(anchor:"faqs-section"), class: "ml-4", style: "text-decoration: none;" %>
+      <%= link_to "Contact", root_path(anchor:"contact-section"), class: "ml-4", style: "text-decoration: none;" %>
+      <a href="#">
+        <%= button_to "DONATE", destroy_user_session_path, method: :delete, class: "bg-white text-customRed px-4 py-2 rounded hover:bg-customGray hover:text-white ml-4" %>
       </a>
       <% if user_signed_in? %>
         <%= link_to "New blog post", new_blog_post_path, class: "ml-4", style: "text-decoration: none;" %>

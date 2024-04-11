@@ -28,4 +28,5 @@ Rails.application.routes.draw do
   get '/page', to: 'page#index'
   get '/tours', to: 'tours#index'
   get '/gallery', to: 'gallery#index'
+
 end
