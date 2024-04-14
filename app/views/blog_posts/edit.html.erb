@@ -1,5 +1,5 @@
 <div class="p-6">
-  <h1 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl" style="color: #6F0114;">Edit Blog Post</h1>
+  <h1 class="mt-2 p-6 text-3xl font-bold tracking-tight sm:text-4xl" style="color: #6F0114;">Edit Blog Post</h1>
   <%= render partial: "form", locals: {blog_post: @blog_post} %>
   <%= button_to "Delete", @blog_post, method: :delete, class: "bg-customRed text-white px-4 py-2 rounded hover:bg-customPink hover:text-black ml-4", data: {turbo_confirm: "Are you sure?"} %>
 </div>
