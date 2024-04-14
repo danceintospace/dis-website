@@ -18,6 +18,10 @@
             <%= form.label :body, class: "text-xl text-gray-600" %>
             <%= form.text_area :body, class: "border-2 rounded border-gray-500 w-full"%>
           </div>
+          <div class="mb-4">
+            <%= form.label :published_at, class: "text-xl text-gray-600" %>
+            <%= form.datetime_select :published_at, include_blank: true %>
+          </div>
         <div class="flex p-1">
           <%= form.button class: "bg-customGray text-black px-4 py-2 rounded hover:bg-customBlue hover:text-white ml-4"%>
         </div>

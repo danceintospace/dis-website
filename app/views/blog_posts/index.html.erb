@@ -9,6 +9,11 @@
           <div class="flex-shrink-0">
             <div class="h-48 w-full object-cover">IMAGE HERE</div>
           </div>
+          <% if blog_post.draft? %>
+            <div class="p-2 rounded bg-customGray text-gray-900">Draft</div>
+            <% elsif blog_post.scheduled? %>
+            <div class="p-2 rounded bg-customPink text-gray-900">Scheduled</div>
+          <% end %>
           <div class="flex flex-1 flex-col justify-between bg-white p-6">
             <div class="flex-1">
 <!--              <p class="text-sm font-medium text-indigo-600">-->

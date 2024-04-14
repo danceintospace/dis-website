@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   resources :blog_posts
+  resources :profiles
   root "home#index"
   get '/page', to: 'page#index'
   get '/tours', to: 'tours#index'
