@@ -8,12 +8,16 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-# Find or initialize a user by email
-user = User.find_or_initialize_by(email: "naijeria@mamatech.co.ke")
+# Create or find the user by email
+user = User.find_or_initialize_by(email: "naijeria@gmail.com")
 
 # Set user attributes
 user.password = "password"
 user.password_confirmation = "password"
 
-# Save the user record
-user.save!
+# Save the user record and handle errors
+if user.save
+  puts "User created successfully"
+else
+  puts "Error creating user: #{user.errors.full_messages.join(', ')}"
+end
