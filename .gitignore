@@ -38,4 +38,5 @@
 !/app/assets/builds/.keep
 
 config/credentials.yml.enc
+config/credentials.yml.enc:2
 
