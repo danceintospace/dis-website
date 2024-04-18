@@ -36,7 +36,7 @@
   </a>
 
 
-<h3 align="center">Dance Into Space Website Redesign</h3>
+<h3 align="center">Dance Into Space Website</h3>
 
   <p align="center">
    Redesign of the Dance Into Space Webiste to make it responsive, align with brand and add easy to use blog post and content updates. 
