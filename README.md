@@ -39,7 +39,7 @@
 <h3 align="center">Dance Into Space Website Redesign</h3>
 
   <p align="center">
-    project_description
+   Redesign of the Dance Into Space Webiste to make it responsive, align with brand and add easy to use blog post and content updates. 
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
