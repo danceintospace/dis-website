@@ -66,7 +66,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "devise", "~> 4.9"
+gem "devise", "~> 4.9", '< 5.0'
 
 gem "tailwindcss-rails", "~> 2.3"
 gem "aws-sdk-s3", require: false

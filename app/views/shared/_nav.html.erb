@@ -12,22 +12,31 @@
     <!-- Menu Items -->
     <div id="menu" class="hidden lg:flex lg:items-center">
       <div class="dropdown inline-block relative ml-6">
-        <button id="exploreBtn" class="focus:outline-none">Explore</button>
-        <ul id="exploreMenu" class="dropdown-menu absolute hidden bg-white text-gray-700 p-2 w-200%">
-          <li><%= link_to "About", root_path(anchor:"about-section"), class: "ml-4", style: "text-decoration: none;" %></li>
-          <li><%= link_to "Team", root_path(anchor:"team-section"), class: "ml-4", style: "text-decoration: none;" %></li>
-          <li><%= link_to "Programs", root_path(anchor:"programs-section"), class: "ml-4", style: "text-decoration: none;" %></li>
-          <li><%= link_to "Projects", root_path(anchor:"projects-section"), class: "ml-4", style: "text-decoration: none;" %></li>
-          <li><%= link_to "Gallery", root_path(anchor:"gallery-section"), class: "ml-4", style: "text-decoration: none;" %></li>
+        <div>
+          <button id="exploreBtn" type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" aria-expanded="true" aria-haspopup="true">
+            Explore
+            <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+        <ul id="exploreMenu" class="dropdown-menu absolute hidden bg-white rounded text-gray-700 mt-2 p-2 w-200%">
+          <li><%= link_to "About", root_path(anchor: "about-section"), class: "block px-4 py-2 ", style: "text-decoration: none;" %></li>
+          <li><%= link_to "Team", root_path(anchor: "team-section"), class: "block px-4 py-2 ", style: "text-decoration: none;" %></li>
+          <li><%= link_to "Programs", root_path(anchor: "programs-section"), class: "block px-4 py-2 ", style: "text-decoration: none;" %></li>
+          <li><%= link_to "Projects", root_path(anchor: "projects-section"), class: "block px-4 py-2 ", style: "text-decoration: none;" %></li>
+          <li><%= link_to "Gallery", root_path(anchor: "gallery-section"), class: "block px-4 py-2 ", style: "text-decoration: none;" %></li>
         </ul>
       </div>
       <%= link_to "Blog", blog_posts_path, class: "ml-4", style: "text-decoration: none;" %>
       <%= link_to "Tours", tours_path, class: "ml-4", style: "text-decoration: none;" %>
       <%= link_to "FAQs", root_path(anchor:"faqs-section"), class: "ml-4", style: "text-decoration: none;" %>
       <%= link_to "Contact", root_path(anchor:"contact-section"), class: "ml-4", style: "text-decoration: none;" %>
-      <a href="#">
-        <%= button_to "DONATE", destroy_user_session_path, method: :delete, class: "bg-white text-customRed px-4 py-2 rounded hover:bg-customGray hover:text-white ml-4" %>
-      </a>
+      <% unless user_signed_in? %>
+        <a href="#">
+          <%= button_to "DONATE", destroy_user_session_path, method: :delete, class: "bg-white text-customRed px-4 py-2 rounded hover:bg-customGray hover:text-white ml-4" %>
+        </a>
+      <% end %>
       <% if user_signed_in? %>
         <%= link_to "New blog post", new_blog_post_path, class: "ml-4", style: "text-decoration: none;" %>
         <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "bg-customGray text-black px-4 py-2 rounded hover:bg-customBlue hover:text-white ml-4" %>
@@ -35,3 +44,11 @@
     </div>
   </div>
 </nav>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("exploreBtn").addEventListener("click", function() {
+            document.getElementById("exploreMenu").classList.toggle("hidden");
+        });
+    });
+</script>
