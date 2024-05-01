@@ -1,5 +1,6 @@
 class BlogPost < ApplicationRecord
   has_rich_text :content
+  has_many_attached :images
 
   validates :title, presence: true
   validates :content, presence: true
@@ -34,6 +35,6 @@ class BlogPost < ApplicationRecord
   private
 
   def blog_post_params
-    params.require(:blog_post).permit(:title, :content) # Add :title if not already present
+    params.require(:blog_post).permit(:title, :content, :images) # Add :title if not already present
   end
 end

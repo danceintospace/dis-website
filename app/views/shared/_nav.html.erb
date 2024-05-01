@@ -38,7 +38,7 @@
         </a>
       <% end %>
       <% if user_signed_in? %>
-        <%= link_to "New blog post", new_blog_post_path, class: "ml-4", style: "text-decoration: none;" %>
+        <%= link_to "New Content", new_blog_post_path, class: "bg-customBlue text-white px-4 py-2 rounded hover:bg-customGray hover:text-white ml-4", style: "text-decoration: none;" %>
         <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "bg-customGray text-black px-4 py-2 rounded hover:bg-customBlue hover:text-white ml-4" %>
       <% end %>
     </div>
