@@ -13,30 +13,30 @@
     </div>
     <!-- Menu Items -->
     <div id="menu" class="hidden lg:flex lg:items-center">
+      <%= link_to "Blog", blog_posts_path, class: "ml-4 px-3 py-2", style: "text-decoration: none;" %>
+      <%= link_to "Tours", tours_path, class: "ml-4 px-3 py-2", style: "text-decoration: none;" %>
+      <%= link_to "FAQs", root_path(anchor:"faqs-section"), class: "ml-4 px-3 py-2", style: "text-decoration: none;" %>
+      <%= link_to "Contact", root_path(anchor:"contact-section"), class: "ml-4 px-3 py-2", style: "text-decoration: none;" %>
       <div class="dropdown inline-block  focus:outline-none ml-6">
-        <div>
-          <button id="exploreBtn" type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" aria-expanded="true" aria-haspopup="true">
-            Explore
-            <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-            </svg>
-          </button>
-        </div>
-        <ul id="exploreMenu" class="dropdown-menu absolute hidden bg-white rounded text-gray-700 mt-4 p-2 w-200%">
-          <li><%= link_to "About", root_path(anchor: "about-section"), class: "block px-4 py-2 hover:bg-customBlue hover:text-white rounded", style: "text-decoration: none;" %></li>
-          <li><%= link_to "Team", root_path(anchor: "team-section"), class: "block px-4 py-2 hover:bg-customBlue hover:text-white rounded ", style: "text-decoration: none;" %></li>
-          <li><%= link_to "Programs", root_path(anchor: "programs-section"), class: "block px-4 py-2 hover:bg-customBlue hover:text-white rounded", style: "text-decoration: none;" %></li>
-          <li><%= link_to "Projects", root_path(anchor: "projects-section"), class: "block px-4 py-2 hover:bg-customBlue hover:text-white rounded", style: "text-decoration: none;" %></li>
-          <li><%= link_to "Gallery", root_path(anchor: "gallery-section"), class: "block px-4 py-2 hover:bg-customBlue hover:text-white rounded", style: "text-decoration: none;" %></li>
-        </ul>
-      </div>
-      <%= link_to "Blog", blog_posts_path, class: "ml-4", style: "text-decoration: none;" %>
-      <%= link_to "Tours", tours_path, class: "ml-4", style: "text-decoration: none;" %>
-      <%= link_to "FAQs", root_path(anchor:"faqs-section"), class: "ml-4", style: "text-decoration: none;" %>
-      <%= link_to "Contact", root_path(anchor:"contact-section"), class: "ml-4", style: "text-decoration: none;" %>
+  
+        <button id="exploreBtn" type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-gray-900 shadow-sm  hover:bg-gray-50" aria-expanded="true" aria-haspopup="true">
+          Explore
+          <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+          </svg>
+        </button>
+
+      <ul id="exploreMenu" class="dropdown-menu absolute hidden bg-white rounded text-gray-700 mt-4 p-2 w-200%">
+        <li><%= link_to "About", root_path(anchor: "about-section"), class: "block px-4 py-2 hover:bg-customGray hover:text-black rounded", style: "text-decoration: none;" %></li>
+        <li><%= link_to "Team", root_path(anchor: "team-section"), class: "block px-4 py-2 hover:bg-customGray hover:text-black rounded ", style: "text-decoration: none;" %></li>
+        <li><%= link_to "Programs", root_path(anchor: "programs-section"), class: "block px-4 py-2 hover:bg-customGray hover:text-black rounded", style: "text-decoration: none;" %></li>
+        <li><%= link_to "Projects", root_path(anchor: "projects-section"), class: "block px-4 py-2 hover:bg-customGray hover:text-black rounded", style: "text-decoration: none;" %></li>
+        <li><%= link_to "Gallery", root_path(anchor: "gallery-section"), class: "block px-4 py-2 hover:bg-customGray hover:text-black rounded", style: "text-decoration: none;" %></li>
+      </ul>
+    </div>
       <% unless user_signed_in? %>
         <a href="#">
-          <%= button_to "DONATE", destroy_user_session_path, method: :delete, class: "bg-white text-customRed px-4 py-2 rounded hover:bg-customGray hover:text-white ml-4" %>
+          <%= button_to "DONATE", destroy_user_session_path, method: :delete, class: "bg-white text-black px-4 py-2 rounded hover:bg-customBlue hover:text-white ml-4" %>
         </a>
       <% end %>
       <% if user_signed_in? %>
