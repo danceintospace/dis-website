@@ -21,3 +21,9 @@ if user.save
 else
   puts "Error creating user: #{user.errors.full_messages.join(', ')}"
 end
+
+
+#Seed BlogPosts
+# 2.times do |i|
+#   BlogPost.create title: "Blog Post #{i}", content: "Mambo Dunia", published_at: Time.current
+# end
