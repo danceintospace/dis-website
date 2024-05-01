@@ -1,6 +1,7 @@
 class BlogPost < ApplicationRecord
   has_rich_text :content
-  has_many_attached :images
+  has_one_attached :cover_image
+  # has_many_attached :images
 
   validates :title, presence: true
   validates :content, presence: true

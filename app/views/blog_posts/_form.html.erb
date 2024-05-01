@@ -15,6 +15,10 @@
             <%= form.text_field :title, class: "border-2 rounded border-gray-300 p-2 w-full"%>
           </div>
           <div class="mb-4">
+            <%= form.label :cover_image, class: "text-xl text-black"%>
+            <%= form.file_field :cover_image, class: "border-2 rounded border-gray-300 p-2 w-full"%>
+          </div>
+          <div class="mb-4">
             <%= form.label :content, class: "text-xl text-black" %>
             <%= form.rich_text_area :content, class: "border-2 rounded border-gray-500 w-full", style: "height: 33vh;"%>
           </div>

@@ -7,7 +7,14 @@
       <% @blog_posts.each do |blog_post| %>
         <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
           <div class="flex-shrink-0">
-            <div class="h-48 w-full object-cover">IMAGE HERE</div>
+            <div class="h-48 w-full object-cover">
+              <% if @blog_post&.cover_image.present? %>
+                <%= image_tag @blog_post.cover_image %>
+              <% else %>
+                <!-- Provide a default image or placeholder -->
+                <%= image_tag "default_cover_image.jpg" %>
+              <% end %>
+            </div>
           </div>
           <% if blog_post.draft? %>
             <div class="p-2 rounded bg-customGray text-gray-900">Draft</div>

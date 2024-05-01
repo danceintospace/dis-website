@@ -13,7 +13,14 @@
     </div>
     <div class="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
       <div class="flex-shrink-0">
-        <div class="h-72 w-full object- bg-blue-500">IMAGE HERE</div>
+        <div class="h-72 w-full">
+          <% if @blog_post&.cover_image.present? %>
+            <%= image_tag @blog_post.cover_image %>
+          <% else %>
+            <!-- Provide a default image or placeholder -->
+            <%= image_tag "default_cover_image.jpg" %>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
