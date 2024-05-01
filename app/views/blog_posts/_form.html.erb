@@ -11,19 +11,19 @@
             </div>
           <% end %>
           <div class="mb-4">
-            <%= form.label :title, class: "text-xl text-gray-600"%>
+            <%= form.label :title, class: "text-xl text-black"%>
             <%= form.text_field :title, class: "border-2 rounded border-gray-300 p-2 w-full"%>
           </div>
           <div class="mb-4">
-            <%= form.label :content, class: "text-xl text-gray-600" %>
-            <%= form.rich_text_area :content, class: "border-2 rounded border-gray-500 w-full", style: "height: auto;"%>
+            <%= form.label :content, class: "text-xl text-black" %>
+            <%= form.rich_text_area :content, class: "border-2 rounded border-gray-500 w-full", style: "height: 33vh;"%>
           </div>
           <div class="mb-4">
-            <%= form.label :published_at, class: "text-xl text-gray-600" %>
+            <%= form.label :published_at, class: "text-xl text-blacks" %>
             <%= form.datetime_select :published_at, include_blank: true %>
           </div>
         <div class="flex pt-6">
-          <%= form.button class: "bg-customGray text-black px-4 py-2 rounded hover:bg-customBlue hover:text-white ml-4"%>
+          <%= form.button class: "bg-customGray text-black px-4 py-2 rounded hover:bg-customBlue hover:text-white "%>
         </div>
         <% end %>
       </div>

@@ -21,11 +21,11 @@
           </button>
         </div>
         <ul id="exploreMenu" class="dropdown-menu absolute hidden bg-white rounded text-gray-700 mt-4 p-2 w-200%">
-          <li><%= link_to "About", root_path(anchor: "about-section"), class: "block px-4 py-2 ", style: "text-decoration: none;" %></li>
-          <li><%= link_to "Team", root_path(anchor: "team-section"), class: "block px-4 py-2 ", style: "text-decoration: none;" %></li>
-          <li><%= link_to "Programs", root_path(anchor: "programs-section"), class: "block px-4 py-2 ", style: "text-decoration: none;" %></li>
-          <li><%= link_to "Projects", root_path(anchor: "projects-section"), class: "block px-4 py-2 ", style: "text-decoration: none;" %></li>
-          <li><%= link_to "Gallery", root_path(anchor: "gallery-section"), class: "block px-4 py-2 ", style: "text-decoration: none;" %></li>
+          <li><%= link_to "About", root_path(anchor: "about-section"), class: "block px-4 py-2 hover:bg-customBlue hover:text-white rounded", style: "text-decoration: none;" %></li>
+          <li><%= link_to "Team", root_path(anchor: "team-section"), class: "block px-4 py-2 hover:bg-customBlue hover:text-white rounded ", style: "text-decoration: none;" %></li>
+          <li><%= link_to "Programs", root_path(anchor: "programs-section"), class: "block px-4 py-2 hover:bg-customBlue hover:text-white rounded", style: "text-decoration: none;" %></li>
+          <li><%= link_to "Projects", root_path(anchor: "projects-section"), class: "block px-4 py-2 hover:bg-customBlue hover:text-white rounded", style: "text-decoration: none;" %></li>
+          <li><%= link_to "Gallery", root_path(anchor: "gallery-section"), class: "block px-4 py-2 hover:bg-customBlue hover:text-white rounded", style: "text-decoration: none;" %></li>
         </ul>
       </div>
       <%= link_to "Blog", blog_posts_path, class: "ml-4", style: "text-decoration: none;" %>
@@ -38,8 +38,8 @@
         </a>
       <% end %>
       <% if user_signed_in? %>
-        <%= link_to "New Content", new_blog_post_path, class: "bg-customBlue text-white px-4 py-2 rounded hover:bg-customGray hover:text-white ml-4", style: "text-decoration: none;" %>
-        <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "bg-customGray text-black px-4 py-2 rounded hover:bg-customBlue hover:text-white ml-4" %>
+        <%= link_to "New Content", new_blog_post_path, class: "bg-customGray text-black px-4 py-2 rounded hover:bg-customBlue hover:text-white ml-4", style: "text-decoration: none;" %>
+        <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "bg-customGray text-black px-4 py-2 rounded hover:bg-customRed hover:text-white ml-4" %>
       <% end %>
     </div>
   </div>

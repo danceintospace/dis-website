@@ -23,7 +23,18 @@ else
 end
 
 
-#Seed BlogPosts
-# 2.times do |i|
-#   BlogPost.create title: "Blog Post #{i}", content: "Mambo Dunia", published_at: Time.current
-# end
+# Seed 
+created_count = 0
+
+100.times do |i|
+  blog_post = BlogPost.where(title: "Blog Post #{i}").first_or_initialize
+  blog_post.update(content: "Mambo Dunia", published_at: Time.current)
+
+  if blog_post.save
+    created_count += 1
+  else
+    puts "Error creating Blog post: #{blog_post.errors.full_messages.join(', ')}"
+  end
+end
+
+puts "#{created_count} Blog Post(s) created successfully"
