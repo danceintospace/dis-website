@@ -1,3 +1,18 @@
+<style>
+  @media (max-width: 767px) {
+    .navbar {
+      flex-direction: column;
+    }
+    #toggleMenuBtn {
+      display: block;
+    }
+    .dropdown-menu {
+      width: 100%;
+      height: 100%;
+      background-color: white;
+    }
+  }
+</style>
 <nav class="navbar bg-white py-2 px-0 lg:px-8 fixed top-0 w-full pt-2 pb-2 transition duration-300" style="z-index: 1000;">
   <div class="container mx-auto flex justify-between items-center">
     <div class="flex items-center">
@@ -14,7 +29,7 @@
     <!-- Menu Items -->
     <div id="menu" class="hidden lg:flex lg:items-center">
       <%= link_to "Blog", blog_posts_path, class: "ml-4 px-3 py-2", style: "text-decoration: none;" %>
-      <%= link_to "Tours", tours_path, class: "ml-4 px-3 py-2", style: "text-decoration: none;" %>
+      <%= link_to "Events", tours_path, class: "ml-4 px-3 py-2", style: "text-decoration: none;" %>
       <%= link_to "FAQs", root_path(anchor:"faqs-section"), class: "ml-4 px-3 py-2", style: "text-decoration: none;" %>
       <%= link_to "Contact", root_path(anchor:"contact-section"), class: "ml-4 px-3 py-2", style: "text-decoration: none;" %>
       <div class="dropdown inline-block  focus:outline-none ml-6">
@@ -26,22 +41,19 @@
           </svg>
         </button>
 
-      <ul id="exploreMenu" class="dropdown-menu absolute hidden bg-white rounded text-gray-700 mt-4 p-2 w-200%">
-        <li><%= link_to "About", root_path(anchor: "about-section"), class: "block px-4 py-2 hover:bg-customGray hover:text-black rounded", style: "text-decoration: none;" %></li>
-        <li><%= link_to "Team", root_path(anchor: "team-section"), class: "block px-4 py-2 hover:bg-customGray hover:text-black rounded ", style: "text-decoration: none;" %></li>
-        <li><%= link_to "Programs", root_path(anchor: "programs-section"), class: "block px-4 py-2 hover:bg-customGray hover:text-black rounded", style: "text-decoration: none;" %></li>
-        <li><%= link_to "Projects", root_path(anchor: "projects-section"), class: "block px-4 py-2 hover:bg-customGray hover:text-black rounded", style: "text-decoration: none;" %></li>
-        <li><%= link_to "Gallery", root_path(anchor: "gallery-section"), class: "block px-4 py-2 hover:bg-customGray hover:text-black rounded", style: "text-decoration: none;" %></li>
-      </ul>
-    </div>
-      <% unless user_signed_in? %>
-        <a href="#">
-          <%= button_to "DONATE", destroy_user_session_path, method: :delete, class: "bg-white text-black px-4 py-2 rounded hover:bg-customBlue hover:text-white ml-4" %>
-        </a>
-      <% end %>
+        <ul id="exploreMenu" class="dropdown-menu absolute hidden bg-white rounded text-gray-700 mt-4 p-2 w-200%">
+          <li><%= link_to "About", root_path(anchor: "about-section"), class: "block px-4 py-2 hover:bg-customGray hover:text-black rounded", style: "text-decoration: none;" %></li>
+          <li><%= link_to "Team", root_path(anchor: "team-section"), class: "block px-4 py-2 hover:bg-customGray hover:text-black rounded ", style: "text-decoration: none;" %></li>
+          <li><%= link_to "Programs", root_path(anchor: "programs-section"), class: "block px-4 py-2 hover:bg-customGray hover:text-black rounded", style: "text-decoration: none;" %></li>
+          <li><%= link_to "Community Projects", root_path(anchor: "projects-section"), class: "block px-4 py-2 hover:bg-customGray hover:text-black rounded", style: "text-decoration: none;" %></li>
+          <li><%= link_to "Gallery", root_path(anchor: "gallery-section"), class: "block px-4 py-2 hover:bg-customGray hover:text-black rounded", style: "text-decoration: none;" %></li>
+        </ul>
+      </div>
       <% if user_signed_in? %>
         <%= link_to "New Content", new_blog_post_path, class: "bg-customGray text-black px-4 py-2 rounded hover:bg-customBlue hover:text-white ml-4", style: "text-decoration: none;" %>
         <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "bg-customGray text-black px-4 py-2 rounded hover:bg-customRed hover:text-white ml-4" %>
+      <% else %>
+        <%= button_to "DONATE", destroy_user_session_path, method: :delete, class: "bg-white text-black px-4 py-2 rounded hover:bg-customBlue hover:text-white ml-4" %>
       <% end %>
     </div>
   </div>
@@ -54,9 +66,19 @@
             document.getElementById("exploreMenu").classList.toggle("hidden");
         });
 
+        // Close explore menu when clicking outside
+        document.addEventListener("click", function(event) {
+            if (!event.target.closest("#exploreBtn") && !event.target.closest("#exploreMenu")) {
+                document.getElementById("exploreMenu").classList.add("hidden");
+            }
+        });
+
         // Toggle main menu on mobile
         document.getElementById("toggleMenuBtn").addEventListener("click", function() {
             document.getElementById("menu").classList.toggle("hidden");
         });
     });
 </script>
+
+
+

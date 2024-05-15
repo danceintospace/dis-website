@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :galleries
+  resources :images
+  
   get 'gallery/index'
   get 'tours/index'
   get 'page/index'
@@ -10,7 +13,12 @@ Rails.application.routes.draw do
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
-
+  # Routes for public pages
+  get '/about', to: 'public_pages#about'
+  get '/team', to: 'public_pages#team'
+  get '/programs', to: 'public_pages#programs'
+  get '/projects', to: 'public_pages#projects'
+  get '/gallery', to: 'public_pages#gallery'
   # get "/blog_posts/new", to: "blog_posts#new", as: :new_blog_post
   # get "/blog_posts/:id", to: "blog_posts#show", as: :blog_post
   # patch "/blog_posts/:id", to: "blog_posts#update"
@@ -30,4 +38,4 @@ Rails.application.routes.draw do
   get '/tours', to: 'tours#index'
   get '/gallery', to: 'gallery#index'
 
-end
+  end
