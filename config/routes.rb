@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   devise_for :users
   devise_for :models
   get 'home/index'
+  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -19,6 +20,8 @@ Rails.application.routes.draw do
   get '/programs', to: 'public_pages#programs'
   get '/projects', to: 'public_pages#projects'
   get '/gallery', to: 'public_pages#gallery'
+  get 'faqs_page', to: 'faqs#show', as: 'faqs_page'
+  get 'faq', to: 'faqs#show', as: 'faq'
   # get "/blog_posts/new", to: "blog_posts#new", as: :new_blog_post
   # get "/blog_posts/:id", to: "blog_posts#show", as: :blog_post
   # patch "/blog_posts/:id", to: "blog_posts#update"
