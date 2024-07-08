@@ -1,84 +1,119 @@
-<style>
-  @media (max-width: 767px) {
-    .navbar {
-      flex-direction: column;
-    }
-    #toggleMenuBtn {
-      display: block;
-    }
-    .dropdown-menu {
-      width: 100%;
-      height: 100%;
-      background-color: white;
-    }
-  }
-</style>
-<nav class="navbar bg-white py-2 px-0 lg:px-8 fixed top-0 w-full pt-2 pb-2 transition duration-300" style="z-index: 1000;">
-  <div class="container mx-auto flex justify-between items-center">
-    <div class="flex items-center">
-      <%= link_to root_path do %>
-        <%= image_tag("logo.jpeg", alt: "Logo", class: "rounded-l w-48 h-auto") %>
-      <% end %>
-    </div>
-    <!-- Toggle Menu Button -->
-    <div id="toggleMenuBtn" class="lg:hidden ml-auto pr-4 focus:outline-none">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M2 5a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1zm0 5a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1zm0 5a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1z" clip-rule="evenodd" />
-      </svg>
-    </div>
-    <!-- Menu Items -->
-    <div id="menu" class="hidden lg:flex lg:items-center">
-      <%= link_to "Blog", blog_posts_path, class: "ml-4 px-3 py-2", style: "text-decoration: none;" %>
-      <%= link_to "Events", tours_path, class: "ml-4 px-3 py-2", style: "text-decoration: none;" %>
-      <%= link_to "FAQs", root_path(anchor:"faqs-section"), class: "ml-4 px-3 py-2", style: "text-decoration: none;" %>
-      <%= link_to "Contact", root_path(anchor:"contact-section"), class: "ml-4 px-3 py-2", style: "text-decoration: none;" %>
-      <div class="dropdown inline-block  focus:outline-none ml-6">
-  
-        <button id="exploreBtn" type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-gray-900 shadow-sm  hover:bg-gray-50" aria-expanded="true" aria-haspopup="true">
-          Explore
-          <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+<nav class="navbar p-2 bg-white px-0 lg:px-8 fixed top-0 w-full transition duration-300" style="z-index: 1000;">
+  <div class="container mx-auto md:flex items-center justify-between">
+    <div class="flex items-center justify-between md:w-auto w-full">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <%= link_to root_path do %>
+          <%= image_tag("logo.jpeg", alt: "Logo", class: "rounded-l w-48 h-auto") %>
+        <% end %>
+      </div>
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden flex items-center mr-6">
+        <button class="mobile-menu-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
+            <title>bars-3-bottom-left</title>
+            <g fill="none">
+              <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
           </svg>
         </button>
-
-        <ul id="exploreMenu" class="dropdown-menu absolute hidden bg-white rounded text-gray-700 mt-4 p-2 w-200%">
-          <li><%= link_to "About", root_path(anchor: "about-section"), class: "block px-4 py-2 hover:bg-customGray hover:text-black rounded", style: "text-decoration: none;" %></li>
-          <li><%= link_to "Team", root_path(anchor: "team-section"), class: "block px-4 py-2 hover:bg-customGray hover:text-black rounded ", style: "text-decoration: none;" %></li>
-          <li><%= link_to "Programs", root_path(anchor: "programs-section"), class: "block px-4 py-2 hover:bg-customGray hover:text-black rounded", style: "text-decoration: none;" %></li>
-          <li><%= link_to "Community Projects", root_path(anchor: "projects-section"), class: "block px-4 py-2 hover:bg-customGray hover:text-black rounded", style: "text-decoration: none;" %></li>
-          <li><%= link_to "Gallery", root_path(anchor: "gallery-section"), class: "block px-4 py-2 hover:bg-customGray hover:text-black rounded", style: "text-decoration: none;" %></li>
+      </div>
+    </div>
+    <!-- Primary Navigation -->
+    <div class="hidden md:flex md:flex-row flex-col items-center justify-start md:space-x-1 navigation-menu pb-3 md:pb-0 navigation-menu shadow-lg md:shadow-none" style="font-size: 0.875rem;">
+      <a href="#" class="py-2 px-3 block">
+        <%= link_to "Blog", blog_posts_path, class: "ml-4 px-2 py-1 hover:bg-customGray rounded", style: "text-decoration: none;" %>
+      </a>
+      <a href="#" class="py-2 px-3 block">
+        <%= link_to "Events", tours_path, class: "ml-4 px-2 py-1 hover:bg-customGray rounded", style: "text-decoration: none;" %>
+      </a>
+      <a href="#" class="py-2 px-3 block">
+        <%= link_to "FAQs", root_path(anchor:"faqs-section"), class: "ml-4 px-2 py-1 hover:bg-customGray rounded", style: "text-decoration: none;" %>
+      </a>
+            <!-- Dropdown Menu -->
+    <div class="relative">
+      <button class="dropdown-toggle ml-4 pt-2 py-2 px-3 hover:bg-customGray flex items-center block rounded">
+        <span class="pointer-events-none">Explore</span>
+          <svg class="w-3 h-3 pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <title>chevron-down</title>
+            <g fill="none">
+              <path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+          </svg>
+      </button>
+      <div class="dropdown-menu absolute hidden bg-white rounded-b-lg pb-2 w-48">
+        <ul>
+          <li><%= link_to "About", root_path(anchor: "about-section"), class: "block px-2 py-2 hover:bg-customGray hover:text-black rounded", style: "text-decoration: none;" %></li>
+          <li><%= link_to "Team", root_path(anchor: "team-section"), class: "block px-2 py-2 hover:bg-customGray hover:text-black rounded ", style: "text-decoration: none;" %></li>
+          <li><%= link_to "Current Projects", root_path(anchor: "programs-section"), class: "block px-2 py-2 hover:bg-customGray hover:text-black rounded", style: "text-decoration: none;" %></li>
+          <li><%= link_to "Community Projects", root_path(anchor: "projects-section"), class: "block px-2 py-2 hover:bg-customGray hover:text-black rounded", style: "text-decoration: none;" %></li>
+          <li><%= link_to "Gallery", root_path(anchor: "gallery-section"), class: "block px-2 py-2 hover:bg-customGray hover:text-black rounded", style: "text-decoration: none;" %></li>
         </ul>
       </div>
-      <% if user_signed_in? %>
-        <%= link_to "New Content", new_blog_post_path, class: "bg-customGray text-black px-4 py-2 rounded hover:bg-customBlue hover:text-white ml-4", style: "text-decoration: none;" %>
-        <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "bg-customGray text-black px-4 py-2 rounded hover:bg-customRed hover:text-white ml-4" %>
-      <% else %>
-        <%= button_to "DONATE", destroy_user_session_path, method: :delete, class: "bg-white text-black px-4 py-2 rounded hover:bg-customBlue hover:text-white ml-4" %>
-      <% end %>
     </div>
-  </div>
+      <div class="py-2 px-3 block">
+        <div%= link_to "Contact", root_path(anchor:"contact-section"), style: "text-decoration: none;" %>
+      </div>
+      <% if user_signed_in? %>
+      <a href="#" class="block">
+        <%= link_to "New Content", new_blog_post_path, class: "bg-customGray text-black px-4 py-2 rounded hover:bg-customBlue hover:text-white ml-6", style: "text-decoration: none;" %>
+      </a>
+      <a href="#" class="block">
+        <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "bg-customGray text-black px-4 py-2 block rounded hover:bg-customRed hover:text-white ml-6" %>
+      </a>
+      <% else %>
+      <a href="#" class="block">
+        <%= button_to "DONATE", destroy_user_session_path, method: :delete, class: "bg-customGray text-black px-2 py-2 rounded hover:bg-customBlue hover:text-white ml-6" %>
+      </a>
+      <% end %>
+      <a href="#" class="py-2 px-3 block">
+        <%= link_to "Contact", root_path(anchor:"contact-section"), class: "ml-4 px-3 py-2 hover:bg-customGray rounded", style: "text-decoration: none;" %>
+      </a>
+    </div>
+    </div>
 </nav>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Toggle explore menu
-        document.getElementById("exploreBtn").addEventListener("click", function() {
-            document.getElementById("exploreMenu").classList.toggle("hidden");
-        });
+  document.addEventListener("DOMContentLoaded", () => {
+  // Select all dropdown toggle buttons
+  const dropdownToggles = document.querySelectorAll(".dropdown-toggle")
 
-        // Close explore menu when clicking outside
-        document.addEventListener("click", function(event) {
-            if (!event.target.closest("#exploreBtn") && !event.target.closest("#exploreMenu")) {
-                document.getElementById("exploreMenu").classList.add("hidden");
-            }
-        });
+  dropdownToggles.forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+      // Find the next sibling element which is the dropdown menu
+      const dropdownMenu = toggle.nextElementSibling
 
-        // Toggle main menu on mobile
-        document.getElementById("toggleMenuBtn").addEventListener("click", function() {
-            document.getElementById("menu").classList.toggle("hidden");
-        });
-    });
+      // Toggle the 'hidden' class to show or hide the dropdown menu
+      if (dropdownMenu.classList.contains("hidden")) {
+        // Hide any open dropdown menus before showing the new one
+        document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+          menu.classList.add("hidden")
+        })
+
+        dropdownMenu.classList.remove("hidden")
+      } else {
+        dropdownMenu.classList.add("hidden")
+      }
+    })
+  })
+
+  // Optional: Clicking outside of an open dropdown menu closes it
+  window.addEventListener("click", (event) => {
+    if (!event.target.matches(".dropdown-toggle")) {
+      document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+        if (!menu.contains(event.target)) {
+          menu.classList.add("hidden")
+        }
+      })
+    }
+  })
+})
+
+// Mobile menu toggle
+const mobileMenuButton = document.querySelector(".mobile-menu-button")
+  const mobileMenu = document.querySelector(".navigation-menu")
+
+  mobileMenuButton.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden")
+  })
 </script>
-
-
-
