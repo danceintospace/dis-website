@@ -40,3 +40,5 @@
 config/credentials.yml.enc
 config/credentials.yml.enc:2
 
+
+/config/credentials/production.key
