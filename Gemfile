@@ -72,3 +72,6 @@ gem "tailwindcss-rails", "~> 2.3"
 gem "aws-sdk-s3", require: false
 
 gem "pagy", "~> 8.3"
+
+gem 'trestle'
+gem 'trestle-auth'
