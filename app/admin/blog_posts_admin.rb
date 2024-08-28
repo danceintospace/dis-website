@@ -3,6 +3,14 @@ Trestle.resource(:blog_posts) do
     item :blog_posts, icon: "fa fa-star"
   end
 
+  search do |query|
+    if query
+      BlogPost.where("title ILIKE ?", "%#{query}%")
+    else
+      BlogPost.all
+    end
+  end
+
   # Customize the table columns shown on the index view.
   #
   # table do

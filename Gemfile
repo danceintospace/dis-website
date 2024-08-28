@@ -75,3 +75,4 @@ gem "pagy", "~> 8.3"
 
 gem 'trestle'
 gem 'trestle-auth'
+gem 'trestle-search'
