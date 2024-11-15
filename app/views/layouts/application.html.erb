@@ -17,10 +17,10 @@
   </head>
 
   <body class="mx-auto bg-gray-50">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <div>
       <%= render partial: 'shared/nav' %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
       <div class="">
         <% unless user_signed_in? %>
         <div
@@ -29,7 +29,9 @@
           <%= render partial: 'partials/socials' %>
         </div>
         <% end %>
-        <div class="top-4"><%= yield %></div>
+        <div class="mt-4">
+          <%= yield %>
+        </div>
       </div>
       <%= render partial: 'shared/footer' %>
     </div>
