@@ -1,45 +1,47 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class GalleriesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @gallery = galleries(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get galleries_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_gallery_url
     assert_response :success
   end
 
-  test "should create gallery" do
-    assert_difference("Gallery.count") do
+  test 'should create gallery' do
+    assert_difference('Gallery.count') do
       post galleries_url, params: { gallery: { name: @gallery.name } }
     end
 
     assert_redirected_to gallery_url(Gallery.last)
   end
 
-  test "should show gallery" do
+  test 'should show gallery' do
     get gallery_url(@gallery)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_gallery_url(@gallery)
     assert_response :success
   end
 
-  test "should update gallery" do
+  test 'should update gallery' do
     patch gallery_url(@gallery), params: { gallery: { name: @gallery.name } }
     assert_redirected_to gallery_url(@gallery)
   end
 
-  test "should destroy gallery" do
-    assert_difference("Gallery.count", -1) do
+  test 'should destroy gallery' do
+    assert_difference('Gallery.count', -1) do
       delete gallery_url(@gallery)
     end
 

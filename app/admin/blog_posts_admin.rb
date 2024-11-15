@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 Trestle.resource(:blog_posts) do
   menu do
-    item :blog_posts, icon: "fa fa-star"
+    item :blog_posts, icon: 'fa fa-star'
   end
 
   search do |query|
     if query
-      BlogPost.where("title ILIKE ?", "%#{query}%")
+      BlogPost.where('title ILIKE ?', "%#{query}%")
     else
       BlogPost.all
     end

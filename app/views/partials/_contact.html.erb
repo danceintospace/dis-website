@@ -12,23 +12,35 @@
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1994.9091593210985!2d34.34470616693257!3d0.0016730429809849595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177ffde603407837%3A0xa8b112575c48746c!2sThe%20Barack%20H.%20Obama%20Recreation%20%26%20Rest%20Center!5e0!3m2!1sen!2sus!4v1708876590709!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <!-- Contact Form -->
+      <!-- modify this form HTML and place wherever you want your form -->
+
       <div class="w-full lg:w-1/2 lg:pl-4">
         <div class="max-w-lg mx-auto">
-          <form class="px-4 mt-8">
-            <div class="mb-4">
-              <input type="text" placeholder="Name" class="px-4 py-2 rounded border w-full">
-            </div>
-            <div class="mb-4">
-              <input type="tel" placeholder="Phone Number" class="px-4 py-2 rounded border w-full">
-            </div>
-            <div class="mb-4">
-              <input type="email" placeholder="Email" class="px-4 py-2 rounded border w-full">
-            </div>
-            <div class="mb-4">
-              <textarea placeholder="Message" class="px-4 py-2 rounded border w-full"></textarea>
-            </div>
-            <button type="submit" class="block mx-auto bg-indigo-900 text-white px-4 py-2 rounded hover:bg-gray-800">Submit</button>
-
+          <form
+          action="https://formspree.io/f/mgveyrge"
+          method="POST"
+          class="px-4 mt-8"
+          >
+          <div class="mb-4">
+            <label>
+              Your name:
+              <input type="name" name="name" class="px-4 py-2 rounded border w-full">
+            </label>
+          </div>
+          <div class="mb-4">
+            <label>
+              Your email:
+              <input type="email" name="email" class="px-4 py-2 rounded border w-full">
+            </label>
+          </div>
+          <div class="mb-4">
+            <label>
+              Your message:
+              <textarea name="message" class="px-4 py-2 rounded border w-full"></textarea>
+            </label>
+          </div>
+          <!-- your other form fields go here -->
+          <button type="submit" class="block mx-auto bg-indigo-900 text-white px-4 py-2 rounded hover:bg-gray-800">Submit</button>
           </form>
         </div>
       </div>
