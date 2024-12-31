@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  mount Avo::Engine, at: Avo.configuration.root_path
   resources :galleries
   resources :images
-  resources :blog_posts, only: [:index, :show, :new, :create] # Ensure only the index and show routes are public
+  resources :blog_posts, only: %i[index show new create] # Ensure only the index and show routes are public
   resources :profiles
 
   get 'gallery/index'

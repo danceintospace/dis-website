@@ -41,7 +41,6 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
-
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem 'image_processing', '~> 1.2'
 
@@ -74,7 +73,8 @@ gem 'tailwindcss-rails', '~> 2.3'
 
 gem 'pagy'
 
+gem 'avo', '>= 3.2.1'
 gem 'dotenv-rails'
 gem 'trestle'
 gem 'trestle-auth'
-gem "trestle-search"
+gem 'trestle-search'
