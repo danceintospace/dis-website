@@ -1,7 +1,7 @@
 class BlogPostsController < ApplicationController
   include Pagy::Backend
   # before_action :set_blog_post, only: %i[ edit update destroy ]
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: %i[index show]
   # GET /blog_posts or /blog_posts.json
   def index
     @pagy, @blog_posts = pagy(BlogPost.all, items: 12)
