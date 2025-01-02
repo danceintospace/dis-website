@@ -30,27 +30,9 @@
       <a href="#" class="py-2 px-3 block">
         <%= link_to "FAQs", root_path(anchor:"faqs-section"), class: "ml-4 px-2 py-1 hover:bg-customGray rounded", style: "text-decoration: none;" %>
       </a>
-            <!-- Dropdown Menu -->
-    <div class="relative">
-      <button class="dropdown-toggle ml-4 pt-2 py-2 px-3 hover:bg-customGray flex items-center block rounded">
-        <span class="pointer-events-none">Explore</span>
-          <svg class="w-3 h-3 pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <title>chevron-down</title>
-            <g fill="none">
-              <path d="M19.5 8.25l-7.5 7.5-7.5-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-            </g>
-          </svg>
-      </button>
-      <div class="dropdown-menu absolute hidden bg-white rounded-b-lg pb-2 w-48">
-        <ul>
-          <li><%= link_to "About", root_path(anchor: "about-section"), class: "block px-2 py-2 hover:bg-customGray hover:text-black rounded", style: "text-decoration: none;" %></li>
-          <li><%= link_to "Team", root_path(anchor: "team-section"), class: "block px-2 py-2 hover:bg-customGray hover:text-black rounded ", style: "text-decoration: none;" %></li>
-          <li><%= link_to "Current Projects", root_path(anchor: "programs-section"), class: "block px-2 py-2 hover:bg-customGray hover:text-black rounded", style: "text-decoration: none;" %></li>
-          <li><%= link_to "Community Projects", root_path(anchor: "projects-section"), class: "block px-2 py-2 hover:bg-customGray hover:text-black rounded", style: "text-decoration: none;" %></li>
-          <li><%= link_to "Gallery", root_path(anchor: "gallery-section"), class: "block px-2 py-2 hover:bg-customGray hover:text-black rounded", style: "text-decoration: none;" %></li>
-        </ul>
-      </div>
-    </div>
+      <a href="#" class="py-2 px-3 block">
+        <%= link_to "Gallery", root_path(anchor:"#"), class: "ml-4 px-2 py-1 hover:bg-customGray rounded", style: "text-decoration: none;" %>
+      </a>
       <div class="py-2 px-3 block">
         <div%= link_to "Contact", root_path(anchor:"contact-section"), style: "text-decoration: none;" %>
       </div>
