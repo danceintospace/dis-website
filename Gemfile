@@ -73,7 +73,7 @@ gem 'tailwindcss-rails', '~> 2.3'
 gem 'pagy'
 
 gem 'avo', '>= 3.2.1'
-gem 'dotenv-rails'
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'trestle'
 gem 'trestle-auth'
 gem 'trestle-search'

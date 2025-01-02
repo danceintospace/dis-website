@@ -2,10 +2,10 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  username: nashthedev
+  username: <%= ENV["DIS_WEBSITE_DATABASE_USERNAME"] %>
   database: dis_website_development
   password: <%= ENV["DIS_WEBSITE_DATABASE_PASSWORD"] %>
-  host: 127.0.0.1
+  host: localhost
   port: 5432
 
 development:
