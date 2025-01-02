@@ -2,7 +2,7 @@ databases:
   - name: dis_website
     databaseName: dis_website
     user: dis_website
-    plan: starter
+    plan: free
 
 services:
   - type: web
