@@ -5,7 +5,7 @@ default: &default
   username: nashthedev
   database: dis_website_development
   password: <%= ENV["DIS_WEBSITE_DATABASE_PASSWORD"] %>
-  host: localhost
+  host: 127.0.0.1
   port: 5432
 
 development:
@@ -19,5 +19,5 @@ test:
 production:
   <<: *default
   database: dis_website_production
-  username: dis_website
+  username: nashthedev
   password: <%= ENV["DIS_WEBSITE_DATABASE_PASSWORD"] %>
