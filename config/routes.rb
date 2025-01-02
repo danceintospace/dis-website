@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   mount Avo::Engine, at: Avo.configuration.root_path
+  authenticate :user, ->(user) { user.admin? } do
+  end
+
   resources :galleries
   resources :images
   resources :blog_posts, param: :slug, only: %i[index show]
@@ -25,5 +28,4 @@ Rails.application.routes.draw do
   root 'home#index'
   get '/page', to: 'page#index'
   get '/tours', to: 'tours#index'
-  get '/gallery', to: 'gallery#index'
 end

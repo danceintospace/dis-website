@@ -5,6 +5,7 @@ Avo.configure do |config|
   config.root_path = '/avo'
   # used only when you have custom `map` configuration in your config.ru
   # config.prefix_path = "/internal"
+  # config.white_panel_classes = 'shadow bg-white rounded-lg'
 
   # Sometimes you might want to mount Avo's engines yourself.
   # https://docs.avohq.io/3.0/routing.html

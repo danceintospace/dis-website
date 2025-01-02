@@ -37,7 +37,7 @@
     </div>
   </div>
 
-  <% if @pagy.count > @pagy.items %>
+  <% if @pagy.count > @pagy.vars[:items] %>
   <div class="text-center p-4 my-16 pagy-nav-container flex justify-center">
     <%== pagy_nav(@pagy) %>
   </div>

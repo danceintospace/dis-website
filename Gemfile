@@ -75,6 +75,3 @@ gem 'pagy'
 gem 'avo', '>= 3.2.1'
 gem 'dotenv-rails', groups: %i[development test]
 gem 'ransack'
-gem 'trestle'
-gem 'trestle-auth'
-gem 'trestle-search'

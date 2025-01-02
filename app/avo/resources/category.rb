@@ -1,4 +1,4 @@
-class Avo::Resources::User < Avo::BaseResource
+class Avo::Resources::Category < Avo::BaseResource
   # self.includes = []
   # self.attachments = []
   # self.search = {
@@ -7,7 +7,7 @@ class Avo::Resources::User < Avo::BaseResource
 
   def fields
     field :id, as: :id
-    field :email, as: :text
-    field :admin, as: :boolean
+    field :title, as: :text
+    field :description, as: :textarea
   end
 end
