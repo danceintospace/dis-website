@@ -6,7 +6,7 @@ default: &default
   database: dis_website_development
   password: <%= ENV["DIS_WEBSITE_DATABASE_PASSWORD"] %>
   host: localhost
-  port: 5432
+
 
 development:
   <<: *default
