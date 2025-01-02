@@ -1,13 +1,18 @@
+  # == BlogPost
+  # Represents a blog post with a title, content, and optional cover image.
+  # ...# frozen_string_literal: true
 class BlogPost < ApplicationRecord
+  before_save :generate_slug
   has_one_attached :cover_image
 
-    # Check if the blog post is a draft (published_at is nil)
-    def draft?
-      published_at.nil?
+  validates :title, presence: true
+
+  def generate_slug
+    self.slug = title.parameterize
+    count = 2
+    while BlogPost.exists?(slug:)
+      self.slug = "#{title.parameterize}-#{count}"
+      count += 1
     end
-  
-    # Check if the blog post is scheduled (published_at is in the future)
-    def scheduled?
-      published_at.present? && published_at > Time.current
-    end
+  end
 end

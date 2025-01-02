@@ -3,16 +3,12 @@
     <div class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
       <div class="lg:pr-4">
         <div class="lg:max-w-lg">
-          <!--                    <p class="text-base font-semibold leading-7 text-indigo-600">Deploy faster</p>-->
           <h1 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl" style="color: #6F0114;"><%= @blog_post.title %></h1>
-<!--          <p class="mt-6 text-xl leading-8 text-gray-700">-->
-<!--            <span><strong class="font-semibold text-gray-900">Dance Into Space</strong></span>, Kenya and <span><strong class="font-semibold text-gray-900">Birmingham Repertory Theatre (the REP)</strong></span>, United Kingdom are collaborating on a new contemporary dance production, Raundi Mwenda, that utilizes Augmented Reality (AR) in the stage presentation.-->
-<!--          </p>-->
         </div>
       </div>
     </div>
     <div class="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-      <div class="flex-shrink-0">
+      <div class="flex-shrink-0"> 
         <div class="h-72 w-full">
           <% if @blog_post&.cover_image.present? %>
             <%= image_tag @blog_post.cover_image %>
@@ -26,18 +22,14 @@
     <div class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
       <div class="lg:pr-4">
         <div class="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
-<!--          <h2 class="mt-12 text-2xl font-bold tracking-tight text-gray-900">Performance Details</h2>-->
-          <p class="mt-6 text-justify">
-            <%= @blog_post.content %>
-          </p>
+            <p class="mt-6 text-justify">
+              <%= sanitize(@blog_post.content, tags: %w(div br strong em p ul ol li a img), attributes: %w(href src alt title)) %>
+            </p>
           <div class="pt-6">
             <span class="p-2 bg-gray-300 rounded">
               <%= @blog_post.published_at.strftime("%b %e, %Y, %H:%M")%>
             </span>
           </div>
-        </div>
-        <div class="pt-6">
-          <%= link_to "Edit", edit_blog_post_path(@blog_post), class: "bg-customGray text-black px-4 py-2 rounded" %>
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_14_235957) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_01_234909) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -84,6 +84,9 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_14_235957) do
     t.string "cover_image"
     t.text "content"
     t.datetime "published_at"
+    t.string "title"
+    t.string "slug"
+    t.index ["slug"], name: "index_blog_posts_on_slug", unique: true
   end
 
   create_table "galleries", force: :cascade do |t|

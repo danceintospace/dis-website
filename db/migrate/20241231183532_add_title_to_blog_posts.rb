@@ -1,5 +1,5 @@
 class AddTitleToBlogPosts < ActiveRecord::Migration[8.0]
   def change
-    add_column :blog_posts, :content, :text
+    add_column :blog_posts, :title, :string
   end
 end
