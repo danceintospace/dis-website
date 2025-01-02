@@ -7,7 +7,6 @@ default: &default
   password: <%= ENV["DIS_WEBSITE_DATABASE_PASSWORD"] %>
   host: localhost
 
-
 development:
   <<: *default
   database: dis_website_development
@@ -17,7 +16,10 @@ test:
   database: dis_website_test
 
 production:
-  <<: *default
-  database: dis_website_production
-  username: nashthedev
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: <%= ENV["DIS_WEBSITE_DATABASE_USERNAME"] %>
+  database: dis_website_development
   password: <%= ENV["DIS_WEBSITE_DATABASE_PASSWORD"] %>
+  host: localhost
