@@ -1,2 +1,68 @@
-<section id="jumbotron" class="bg-center bg-no-repeat pt-60" style="background-image: url('<%= asset_path('Ondiege4.jpg') %>'); background-size: cover; height: 100vh; background-position: center center;">
+<script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
+<section id="jumbotron" class="bg-center bg-no-repeat" style="height: 100vh; background-size: cover;">
+    <article x-data="slider()" class="relative w-full flex flex-shrink-0 overflow-hidden shadow-2xl h-full">
+        <!-- Slider Index Display -->
+        <div class="rounded-full bg-gray-600 text-white absolute top-5 right-5 text-sm px-2 text-center z-10">
+            <span x-text="currentIndex"></span> / <span x-text="images.length"></span>
+        </div>
+
+        <!-- Slider Images -->
+        <template x-for="(image, index) in images" :key="index">
+            <figure class="relative w-full h-full flex items-center justify-center" 
+                    x-show="currentIndex === index + 1"
+                    x-transition:enter="transition-opacity duration-500 ease-in-out"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition-opacity duration-500 ease-in-out"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0">
+                <img :src="image.src" alt="Image" class="w-full h-full object-cover" />
+                
+                <!-- Caption unique to each image -->
+                <figcaption class="absolute inset-x-0 bottom-1 z-20 w-96 mx-auto p-4 font-bold text-lg text-black text-center tracking-widest leading-snug bg-white bg-opacity-25">
+                    <span x-text="image.caption"></span>
+                </figcaption>
+            </figure>
+        </template>
+
+        <!-- Navigation Buttons -->
+        <button @click="back()"
+            class="absolute left-14 top-1/2 -translate-y-1/2 w-11 h-11 flex justify-center items-center rounded-full shadow-md z-10 bg-gray-100 hover:bg-gray-200">
+            <svg class="w-8 h-8 font-bold text-gray-500 hover:text-gray-600" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </button>
+
+        <button @click="next()"
+            class="absolute right-14 top-1/2 -translate-y-1/2 w-11 h-11 flex justify-center items-center rounded-full shadow-md z-10 bg-gray-100 hover:bg-gray-200">
+            <svg class="w-8 h-8 font-bold text-gray-500 hover:text-gray-600" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </button>
+    </article>
 </section>
+
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('slider', () => ({
+            currentIndex: 1,
+            images: [
+                { src: "<%= asset_path('Ondiege4.jpg') %>", caption: "Nyanam Duet  - SA Tour" },
+                { src: "<%= asset_path('agwata_show_one.jpg') %>", caption: "Agwata" },
+                { src: "<%= asset_path('agwata_show_three.jpg') %>", caption: "Agwata" }
+            ],
+            init() {
+                // Remove the auto-slide initialization (no need to call startAutoSlide)
+            },
+            back() {
+                this.currentIndex = this.currentIndex > 1 ? this.currentIndex - 1 : this.images.length;
+            },
+            next() {
+                this.currentIndex = this.currentIndex < this.images.length ? this.currentIndex + 1 : 1;
+            }
+        }));
+    });
+</script>
+

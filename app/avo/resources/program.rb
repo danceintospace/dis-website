@@ -9,5 +9,6 @@ class Avo::Resources::Program < Avo::BaseResource
     field :id, as: :id
     field :title, as: :text
     field :content, as: :textarea
+    field :image, as: :text
   end
 end
