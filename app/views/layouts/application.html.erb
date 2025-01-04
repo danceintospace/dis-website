@@ -14,8 +14,8 @@
     "reload" %> <%= javascript_importmap_tags %>
   </head>
 
-  <body class="mx-auto bg-gray-50">
-    <div>
+  <body class="flex flex-col min-h-screen mx-auto bg-gray-50">
+   
       <%= render partial: 'shared/nav' %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
@@ -32,6 +32,6 @@
         </div>
       </div>
       <%= render partial: 'shared/footer' %>
-    </div>
+
   </body>
 </html>
