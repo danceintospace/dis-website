@@ -1,4 +1,5 @@
 import { Application } from "@hotwired/stimulus"
+import "custom_script";
 
 const application = Application.start()
 
