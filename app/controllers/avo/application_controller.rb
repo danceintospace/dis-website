@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Avo
   class ApplicationController < BaseApplicationController
     before_action :require_authentication, if: :avo_restricted_action?

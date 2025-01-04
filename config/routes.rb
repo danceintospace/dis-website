@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   mount Avo::Engine, at: Avo.configuration.root_path
-  authenticate :user, ->(user) { user.admin? } do
+  authenticate :user, lambda(&:admin?) do
   end
 
   resources :galleries

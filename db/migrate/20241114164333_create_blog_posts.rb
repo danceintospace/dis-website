@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateBlogPosts < ActiveRecord::Migration[8.0]
   def change
     create_table :blog_posts, id: :uuid do |t|

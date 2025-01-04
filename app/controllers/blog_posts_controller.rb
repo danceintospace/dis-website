@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BlogPostsController < ApplicationController
   include Pagy::Backend
   # before_action :set_blog_post, only: %i[ edit update destroy ]

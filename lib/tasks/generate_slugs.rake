@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :blog_posts do
   desc 'Generate slugs for all blog posts'
   task generate_slugs: :environment do
