@@ -2,13 +2,17 @@
 
 Rails.application.routes.draw do
   mount Avo::Engine, at: Avo.configuration.root_path
-  authenticate :user, lambda(&:admin?) do
-  end
+  # authenticate :user, lambda(&:admin?) do
+  #   # Add routes that require admin authentication here
+  # end
 
   resources :galleries
   resources :images
   resources :blog_posts, param: :slug, only: %i[index show]
   resources :profiles
+  resources :programs
+
+  get 'programs', to: 'programs#index'
 
   get 'gallery/index'
   get 'tours/index'
@@ -17,11 +21,12 @@ Rails.application.routes.draw do
   devise_for :users
   devise_for :models
   get 'home/index'
+  get 'programs/index'
 
   # Routes for public pages
   get '/about', to: 'public_pages#about'
   get '/team', to: 'public_pages#team'
-  get '/programs', to: 'public_pages#programs'
+
   get '/projects', to: 'public_pages#projects'
   get '/gallery', to: 'public_pages#gallery'
   get 'faqs_page', to: 'faqs#show', as: 'faqs_page'

@@ -9,12 +9,10 @@
       <div class="flex flex-col justify-center items-center max-w-md mx-auto my-6">
         <div class="bg-gray-300 h-64 w-full rounded-lg shadow-md bg-cover bg-center" style="background-image: url('<%= asset_path('sex education.jpeg') %>');"></div>
         <div class="w-56 md:w-64 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden">
-          <div class="py-2 text-center font-bold tracking-wide text-gray-800">Community Outreach</div>
-          <div class="flex items-center justify-between py-2 px-3 bg-gray-100">
-            <%= link_to '/', data: { turbo: false }, class: "bg-gray-400 text-xs px-3 py-2 rounded uppercase font-bold text-black hover:bg-indigo-900 hover:text-white" do %>
-              Learn More
-            <% end %>        
-          </div>
+            <div class="py-2 text-center font-bold tracking-wide text-gray-800">Community Outreach</div>
+            <div class="flex items-center justify-between py-2 px-3 bg-gray-100">
+                <%= link_to 'Learn more', programs_path, data: { turbo: false }, class: "bg-gray-400 text-xs px-3 py-2 rounded uppercase font-bold text-black hover:bg-indigo-900 hover:text-white" %>
+            </div>
         </div>
       </div>
       <div class="flex flex-col justify-center items-center max-w-md mx-auto my-6">
