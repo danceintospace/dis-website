@@ -32,3 +32,23 @@
     }
   }
 }
+
+body {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Ensure navbar and jumbotron have no extra margin or padding */
+    .navbar, .jumbotron {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Adjust spacing as needed */
+    .navbar {
+      margin-bottom: 0; /* Adjust this value if needed */
+    }
+
+    .jumbotron {
+      margin-top: 0; /* Adjust this value if needed */
+    }

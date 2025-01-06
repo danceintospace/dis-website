@@ -1,68 +1,38 @@
-<script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
-<section id="jumbotron" class="bg-center bg-no-repeat" style="height: 100vh; background-size: cover;">
-    <article x-data="slider()" class="relative w-full flex flex-shrink-0 overflow-hidden shadow-2xl h-full">
-        <!-- Slider Index Display -->
-        <div class="rounded-full bg-gray-600 text-white absolute top-5 right-5 text-sm px-2 text-center z-10">
-            <span x-text="currentIndex"></span> / <span x-text="images.length"></span>
+<section id="jumbotron" class="mt-0" style="height: 110vh;">
+    <!-- Carousel -->
+    <div id="jumbotron" class="carousel slide" data-bs-ride="carousel">
+
+        <!-- Indicators/dots -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#jumbotron" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#jumbotron" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#jumbotron" data-bs-slide-to="2"></button>
+            <!-- <button type="button" data-bs-target="#jumbotron" data-bs-slide-to="3"></button> -->
+            <!-- <button type="button" data-bs-target="#jumbotron" data-bs-slide-to="4"></button>
+            <button type="button" data-bs-target="#jumbotron" data-bs-slide-to="5"></button>
+            <button type="button" data-bs-target="#jumbotron" data-bs-slide-to="6"></button> -->
         </div>
 
-        <!-- Slider Images -->
-        <template x-for="(image, index) in images" :key="index">
-            <figure class="relative w-full h-full flex items-center justify-center" 
-                    x-show="currentIndex === index + 1"
-                    x-transition:enter="transition-opacity duration-500 ease-in-out"
-                    x-transition:enter-start="opacity-0"
-                    x-transition:enter-end="opacity-100"
-                    x-transition:leave="transition-opacity duration-500 ease-in-out"
-                    x-transition:leave-start="opacity-100"
-                    x-transition:leave-end="opacity-0">
-                <img :src="image.src" alt="Image" class="w-full h-full object-cover" />
-                
-                <!-- Caption unique to each image -->
-                <figcaption class="absolute inset-x-0 bottom-1 z-20 w-96 mx-auto p-4 font-bold text-lg text-black text-center tracking-widest leading-snug bg-white bg-opacity-25">
-                    <span x-text="image.caption"></span>
-                </figcaption>
-            </figure>
-        </template>
+        <!-- The slideshow/carousel -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="<%= asset_path('Ondiege4.jpg') %>" alt="two dancers on the floor" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="<%= asset_path('agwata_show_three.jpg') %>" alt="one dancer sprinkling sand on another" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="<%= asset_path('duet_nyanam.jpg') %>" alt="two dancers on stage heads touching" class="d-block w-100">
+            </div>
+        </div>
 
-        <!-- Navigation Buttons -->
-        <button @click="back()"
-            class="absolute left-14 top-1/2 -translate-y-1/2 w-11 h-11 flex justify-center items-center rounded-full shadow-md z-10 bg-gray-100 hover:bg-gray-200">
-            <svg class="w-8 h-8 font-bold text-gray-500 hover:text-gray-600" fill="none" stroke="currentColor"
-                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
-            </svg>
+        <!-- Left and right controls/icons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#jumbotron" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
         </button>
-
-        <button @click="next()"
-            class="absolute right-14 top-1/2 -translate-y-1/2 w-11 h-11 flex justify-center items-center rounded-full shadow-md z-10 bg-gray-100 hover:bg-gray-200">
-            <svg class="w-8 h-8 font-bold text-gray-500 hover:text-gray-600" fill="none" stroke="currentColor"
-                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
-            </svg>
+        <button class="carousel-control-next" type="button" data-bs-target="#jumbotron" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
         </button>
-    </article>
+    </div>
 </section>
-
-<script>
-    document.addEventListener('alpine:init', () => {
-        Alpine.data('slider', () => ({
-            currentIndex: 1,
-            images: [
-                { src: "<%= asset_path('Ondiege4.jpg') %>", caption: "Nyanam Duet  - SA Tour" },
-                { src: "<%= asset_path('agwata_show_one.jpg') %>", caption: "Agwata" },
-                { src: "<%= asset_path('agwata_show_three.jpg') %>", caption: "Agwata" }
-            ],
-            init() {
-                // Remove the auto-slide initialization (no need to call startAutoSlide)
-            },
-            back() {
-                this.currentIndex = this.currentIndex > 1 ? this.currentIndex - 1 : this.images.length;
-            },
-            next() {
-                this.currentIndex = this.currentIndex < this.images.length ? this.currentIndex + 1 : 1;
-            }
-        }));
-    });
-</script>
 
