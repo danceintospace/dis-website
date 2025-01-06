@@ -49,6 +49,17 @@ body {
       margin-bottom: 0; /* Adjust this value if needed */
     }
 
-    .jumbotron {
-      margin-top: 0; /* Adjust this value if needed */
-    }
+    #jumbotron {
+      height: 100vh;
+  }
+  
+  .carousel-item img {
+      height: 100%;
+      object-fit: cover;
+  }
+  
+  @media (max-width: 768px) {
+      #jumbotron {
+          height: 70vh;
+      }
+  }

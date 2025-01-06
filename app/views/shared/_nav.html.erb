@@ -1,14 +1,14 @@
-<nav class="navbar  bg-white p-2 px-0 lg:px-8 fixed-top w-full transition duration-300" style="z-index: 1000;">
+<nav class="navbar  bg-white  lg:px-8 fixed-top w-full transition duration-300" style="z-index: 1000;">
   <div class="container mx-auto md:flex items-center justify-between">
     <div class="flex items-center justify-between md:w-auto w-full">
       <!-- Logo -->
       <div class="flex items-center">
         <%= link_to root_path do %>
-          <%= image_tag("logo.jpeg", alt: "Logo", class: "rounded-l w-48 h-auto") %>
+          <%= image_tag("logo.jpeg", alt: "Logo", class: "rounded-l w-40 h-auto") %>
         <% end %>
       </div>
       <!-- Mobile Menu Button -->
-      <div class="md:hidden flex items-center mr-6">
+      <div class="md:hidden flex items-center mr-4">
         <button class="mobile-menu-button">
           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
             <title>bars-3-bottom-left</title>
@@ -20,26 +20,28 @@
       </div>
     </div>
     <!-- Primary Navigation -->
-    <ul class="hidden py-3 md:flex md:flex-row flex-col items-center justify-start md:space-x-1 navigation-menu pb-3 md:pb-0 navigation-menu :shadow-none" >
-      <li class="py-3 px-3 block">
-        <%= link_to "Blog", blog_posts_path, class: "ml-4 p-2 text-black hover:bg-customGray rounded", style: "text-decoration: none;" %>
-      </li>
-      <li class="py-3 px-3 block">
-        <%= link_to "Tours", tours_path, class: "ml-4 p-2 text-black hover:bg-customGray rounded", style: "text-decoration: none;" %>
-      </li>
-      <li class="py-3 px-3 block">
-        <%= link_to "Gallery", tours_path, class: "ml-4 p-2 text-black  hover:bg-customGray rounded", style: "text-decoration: none;" %>
-      </li>
-      <li class="py-3 px-3 block">
-        <%= link_to "FAQs", root_path(anchor:"faqs-section"), class: "ml-4 p-2 text-black hover:bg-customGray rounded", style: "text-decoration: none;" %>
-      </li>
-      <li class="py-3 px-3 block">
-        <%= link_to "Contact", root_path(anchor:"contact-section"), class: "ml-4 p-2 text-black hover:bg-customGray rounded", style: "text-decoration: none;" %>
-      </li>
-      <li class="block">
-        <%= button_to "DONATE", destroy_user_session_path, method: :delete, class: "bg-customGray p-2 rounded hover:bg-customBlue hover:text-white ml-6" %>
-      </li>
-    </ul>
+    <div class="flex items-center justify-center h-full">
+      <ul class="hidden md:flex md:flex-row flex-col items-center justify-start md:space-x-1 navigation-menu pb- md:pb-0 navigation-menu :shadow-none" >
+        <li class="block">
+          <%= link_to "Blog", blog_posts_path, class: "ml-4 p-2 text-black hover:bg-customGray rounded", style: "text-decoration: none;" %>
+        </li>
+        <li class="block">
+          <%= link_to "Tours", tours_path, class: "ml-4 p-2 text-black hover:bg-customGray rounded", style: "text-decoration: none;" %>
+        </li>
+        <li class="block">
+          <%= link_to "Gallery", tours_path, class: "ml-4 p-2 text-black  hover:bg-customGray rounded", style: "text-decoration: none;" %>
+        </li>
+        <li class="block">
+          <%= link_to "FAQs", root_path(anchor:"faqs-section"), class: "ml-4 p-2 text-black hover:bg-customGray rounded", style: "text-decoration: none;" %>
+        </li>
+        <li class="block">
+          <%= link_to "Contact", root_path(anchor:"contact-section"), class: "ml-4 p-2 text-black hover:bg-customGray rounded", style: "text-decoration: none;" %>
+        </li>
+        <li class="block">
+          <%= button_to "Donate", destroy_user_session_path, method: :delete, class: "ml-4 p-2 rounded hover:bg-customBlue hover:text-white" %>
+        </li>
+      </ul>
+    </div>
     </div>
 </nav>
 
