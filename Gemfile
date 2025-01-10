@@ -75,5 +75,8 @@ gem 'tailwindcss-rails', '~> 2.3'
 gem 'pagy'
 
 gem 'avo', '>= 3.2.1'
+gem 'cloudinary', '~> 1.2', '>= 1.2.2'
 gem 'dotenv-rails', groups: %i[development test]
 gem 'ransack'
+
+gem "prawn", "~> 2.5"

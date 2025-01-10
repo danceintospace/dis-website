@@ -1,4 +1,5 @@
 class GalleryItemsController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show]
   def index
     @gallery_items = GalleryItem.all
   end

@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  mount Avo::Engine, at: Avo.configuration.root_path
   get "gallery/add"
   get "gallery/photo"
-  mount Avo::Engine, at: Avo.configuration.root_path
+  get "dance_center", to: "dance_center#show"
+  get "dance_center/download_pdf", to: "dance_center#download_pdf"
+
   # authenticate :user, lambda(&:admin?) do
   #   # Add routes that require admin authentication here
   # end
