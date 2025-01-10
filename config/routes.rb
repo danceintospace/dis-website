@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get "gallery/add"
+  get "gallery/photo"
   mount Avo::Engine, at: Avo.configuration.root_path
   # authenticate :user, lambda(&:admin?) do
   #   # Add routes that require admin authentication here
   # end
 
-  resources :galleries
   resources :images
   resources :blog_posts, param: :slug, only: %i[index show]
   resources :profiles
@@ -19,7 +20,6 @@ Rails.application.routes.draw do
   get 'page/index'
   get 'blog/index'
   devise_for :users
-  devise_for :models
   get 'home/index'
   get 'programs/index'
 
