@@ -139,17 +139,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_11_095638) do
     t.string "image"
   end
 
-  create_table "tours", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.date "start_date"
-    t.date "end_date"
-    t.string "location"
-    t.string "category"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
