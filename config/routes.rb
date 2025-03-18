@@ -2,40 +2,42 @@
 
 Rails.application.routes.draw do
   mount Avo::Engine, at: Avo.configuration.root_path
-  get "gallery/add"
-  get "gallery/photo"
-  get "dance_center", to: "dance_center#show"
-  get "dance_center/download_pdf", to: "dance_center#download_pdf"
 
-  # authenticate :user, lambda(&:admin?) do
-  #   # Add routes that require admin authentication here
-  # end
+  # Gallery routes
+  get 'gallery/add'
+  get 'gallery/photo'
+  get '/gallery', to: 'public_pages#gallery' # Keep this for the main gallery page
 
+  # Dance Center routes
+  get 'dance_center', to: 'dance_center#show'
+  get 'dance_center/download_pdf', to: 'dance_center#download_pdf'
+
+  # REST routes
   resources :images
   resources :blog_posts, param: :slug, only: %i[index show]
   resources :profiles
   resources :programs
+  resources :updates, only: [:index]
+  
 
-  get 'programs', to: 'programs#index'
+  # Events routes
+  get '/events', to: 'events#index'
 
-  get 'gallery/index'
-  get 'tours/index'
-  get 'page/index'
-  get 'blog/index'
-  devise_for :users
-  get 'home/index'
-  get 'programs/index'
-
-  # Routes for public pages
+  # Public pages
   get '/about', to: 'public_pages#about'
   get '/team', to: 'public_pages#team'
-
   get '/projects', to: 'public_pages#projects'
-  get '/gallery', to: 'public_pages#gallery'
-  get 'faqs_page', to: 'faqs#show', as: 'faqs_page'
-  get 'faq', to: 'faqs#show', as: 'faq'
 
+  # FAQs
+  get '/faq', to: 'faqs#show', as: 'faq' # Consolidated to one route
+
+  # Devise routes
+  devise_for :users
+
+  # Root and home
   root 'home#index'
+  get '/home', to: 'home#index'
+
+  # Page route
   get '/page', to: 'page#index'
-  get '/tours', to: 'tours#index'
 end

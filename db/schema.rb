@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_03_155805) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_11_095638) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -142,7 +142,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_03_155805) do
   create_table "tours", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "cover_image"
+    t.date "start_date"
+    t.date "end_date"
+    t.string "location"
+    t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

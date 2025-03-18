@@ -79,4 +79,4 @@ gem 'cloudinary', '~> 1.2', '>= 1.2.2'
 gem 'dotenv-rails', groups: %i[development test]
 gem 'ransack'
 
-gem "prawn", "~> 2.5"
+gem 'prawn', '~> 2.5'
