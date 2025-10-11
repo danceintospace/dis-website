@@ -1,2 +1,2 @@
-class Avo::GalleryController < Avo::ResourcesController
+class Avo::UpdatesController < Avo::ResourcesController
 end
