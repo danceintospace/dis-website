@@ -1,7 +1,7 @@
 class CreateTours < ActiveRecord::Migration[8.0]
   def change
-    create_table :tours do |t|
-      t.string :title
+    create_table :tours, if_not_exists: true do |t|
+    t.string :title
       t.text :description
       t.date :start_date
       t.date :end_date
