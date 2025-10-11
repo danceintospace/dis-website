@@ -25,26 +25,18 @@ Avo.configure do |config|
   end
 
   ## == Authentication ==
-  # config.current_user_method = :current_user
-  # config.authenticate_with do
-  # end
+  config.current_user_method = :current_user
+  config.authenticate_with do
+    redirect_to new_user_session_path unless current_user
+  end
 
   ## == Authorization ==
-  # config.is_admin_method = :is_admin
-  # config.is_developer_method = :is_developer
-  # config.authorization_methods = {
-  #   index: 'index?',
-  #   show: 'show?',
-  #   edit: 'edit?',
-  #   new: 'new?',
-  #   update: 'update?',
-  #   create: 'create?',
-  #   destroy: 'destroy?',
-  #   search: 'search?',
-  # }
-  # config.raise_error_on_missing_policy = false
+  config.authorize_with do
+    redirect_to root_path, alert: "Not authorized" unless current_user&.admin?
+  end
+
   config.authorization_client = nil
-  config.explicit_authorization = true
+  config.explicit_authorization = false
 
   ## == Localization ==
   # config.locale = 'en-US'
