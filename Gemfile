@@ -70,7 +70,7 @@ end
 
 gem 'devise', '~> 4.9', '< 5.0'
 
-gem 'tailwindcss-rails', '~> 2.3'
+gem "tailwindcss-rails"
 
 gem 'pagy'
 
