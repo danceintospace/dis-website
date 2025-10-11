@@ -28,13 +28,10 @@ Avo.configure do |config|
   config.current_user_method = :current_user
   config.authenticate_with do
     redirect_to new_user_session_path unless current_user
-  end
-
-  ## == Authorization ==
-  config.authorize_with do
     redirect_to root_path, alert: "Not authorized" unless current_user&.admin?
   end
 
+  ## == Authorization ==
   config.authorization_client = nil
   config.explicit_authorization = false
 
