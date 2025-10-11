@@ -42,3 +42,6 @@ config/credentials.yml.enc:2
 
 
 /config/credentials/production.key
+
+# Ignore cloudinary config with secrets
+/config/cloudinary.yml
