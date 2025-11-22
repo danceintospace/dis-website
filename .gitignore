@@ -45,3 +45,4 @@ config/credentials.yml.enc:2
 
 # Ignore cloudinary config with secrets
 /config/cloudinary.yml
+.env
