@@ -27,8 +27,11 @@ Avo.configure do |config|
   ## == Authentication ==
   config.current_user_method = :current_user
   config.authenticate_with do
-    redirect_to new_user_session_path unless current_user
-    redirect_to root_path, alert: "Not authorized" unless current_user&.admin?
+    unless current_user
+      redirect_to new_user_session_path
+    else
+      redirect_to root_path, alert: "Not authorized" unless current_user&.admin?
+    end
   end
 
   ## == Authorization ==
